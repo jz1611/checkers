@@ -34,12 +34,24 @@ header > h1 {
     height: 100px;
     width: 100px;;
     background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 140px;
+    padding-bottom: 20px;
+    color: green;
 }
 
 .white-square {
     height: 100px;
     width: 100px;
     background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 140px;
+    padding-bottom: 20px;
+    color: green;
 }
 
 .row {
