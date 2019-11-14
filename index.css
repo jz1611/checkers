@@ -66,9 +66,15 @@ header > h1 {
 
 }
 
+h2 {
+    font-size: 18px;
+    font-weight: 650;
+}
+
 h3 {
     margin-top: 5px;
     margin-bottom: 20px;
+    font-size: 30px;
 }
 
 .options {
@@ -80,4 +86,17 @@ h1 {
     font-weight: 550;
     align-self: center;
     margin: 25px 0;
+}
+
+button {
+    background-color: rgb(255, 243, 133);
+    font-size: 15px;
+    font-weight: 600;
+    height: 50px;
+    width: 150px;
+    margin: 20px;
+    border-radius: 25px;
+    border: solid rgb(151, 151, 151) 2px;
+    box-shadow: rgb(83, 83, 83) 2px 2px 3px;
+    cursor: pointer;
 }
