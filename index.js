@@ -31,17 +31,15 @@ function resetBoard(){
             square.innerHTML = board[i][j];
             square.addEventListener('click', selectToken);
 
-            // if (square.innerHTML === '&#9679;') {
-            //     square.style.color = getTopColor();
-            // }
+            if (square.classList.contains('top-piece')) {
+                square.style.color = getTopColor();
+            }
     
-            // if (square.innerHTML === '&#9675;') {
-            //     square.style.color = getBottomColor();
-            // }
+            if (square.classList.contains('bottom-piece')) {
+                square.style.color = getBottomColor();
+            }
         }
     }
-
-    console.dir(document.getElementById('board'))
 
     topTokensGone = 0;
     bottomTokensGone = 0;
@@ -66,22 +64,22 @@ function moveToken() {
 
 }
 
-// function getTopColor() {
-//     let colors = document.getElementsByName('top-color');
+function getTopColor() {
+    let colors = document.getElementsByName('top-color');
 
-//     for (let i = 0; i < colors.length; i++) {
-//         if(colors[i].checked) {
-//             return colors[i];
-//         }
-//     }
-// }
+    for (let i = 0; i < colors.length; i++) {
+        if(colors[i].checked) {
+            return colors[i].value;
+        }
+    }
+}
 
-// function getBottomColor() {
-//     let colors = document.getElementsByName('bottom-color');
+function getBottomColor() {
+    let colors = document.getElementsByName('bottom-color');
 
-//     for (let i = 0; i < colors.length; i++) {
-//         if(colors[i].checked) {
-//             return colors[i];
-//         }
-//     }
-// }
+    for (let i = 0; i < colors.length; i++) {
+        if(colors[i].checked) {
+            return colors[i].value;
+        }
+    }
+}
