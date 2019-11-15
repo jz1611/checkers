@@ -9,20 +9,22 @@ var topColor = '';
 var bottomColor = '';
 const resetBoardButton = document.getElementById('board-reset');
 const resetScoreButton = document.getElementById('score-reset');
+const topPiece = '&#9679;';
+const bottomPiece = '&#9679;';
 
 resetBoardButton.addEventListener('click', resetBoard);
 resetScoreButton.addEventListener('click', resetScore);
 
 function resetBoard(){
     board = [
-        ["", "&#9679;", "", "&#9679;", "", "&#9679;", "", "&#9679;"],
-        ["&#9679;", "", "&#9679;", "", "&#9679;", "", "&#9679;", ""],
-        ["", "&#9679;", "", "&#9679;", "", "&#9679;", "", "&#9679;"],
+        ["", topPiece, "", topPiece, "", topPiece, "", topPiece],
+        [topPiece, "", topPiece, "", topPiece, "", topPiece, ""],
+        ["", topPiece, "", topPiece, "", topPiece, "", topPiece],
         ["", "", "", "", "", "", "", ""],
         ["", "", "", "", "", "", "", ""],
-        ["&#9675;", "", "&#9675;", "", "&#9675;", "", "&#9675;", ""],
-        ["", "&#9675;", "", "&#9675;", "", "&#9675;", "", "&#9675;"],
-        ["&#9675;", "", "&#9675;", "", "&#9675;", "", "&#9675;", ""],
+        [bottomPiece, "", bottomPiece, "", bottomPiece, "", bottomPiece, ""],
+        ["", bottomPiece, "", bottomPiece, "", bottomPiece, "", bottomPiece],
+        [bottomPiece, "", bottomPiece, "", bottomPiece, "", bottomPiece, ""],
     ]
 
     for (let i = 0; i < board.length; i++) {
@@ -30,6 +32,11 @@ function resetBoard(){
             let square = document.getElementById(`${i}-${j}`);
             square.innerHTML = board[i][j];
             square.addEventListener('click', selectToken);
+
+            if (getTopColor() === getBottomColor()) {
+                window.alert("Player colors must be different.");
+                return;
+            }
 
             if (square.classList.contains('top-piece')) {
                 square.style.color = getTopColor();
@@ -43,6 +50,9 @@ function resetBoard(){
 
     topTokensGone = 0;
     bottomTokensGone = 0;
+
+    document.getElementById('top-tokens').innerText = topTokensGone;
+    document.getElementById('bottom-tokens').innerText = bottomTokensGone;
 }
 
 function resetScore() {
@@ -55,13 +65,15 @@ function selectToken() {
         return;
     } else {
         this.style.border = "solid red 5px"
-        moveToken();
-        this.style.border = "";
     }
 }
 
 function moveToken() {
+    showPossibleMoves();
+}
 
+function showPossibleMoves() {
+    console.log(this);
 }
 
 function getTopColor() {
